@@ -45,6 +45,25 @@ body {
 .btn-danger { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.35); color: #fecaca; }
 .btn-danger:hover { background: rgba(239,68,68,0.25); }
 
+/* Disabled button styles */
+.btn:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed; 
+    background: rgba(255,255,255,0.03); 
+    border-color: rgba(255,255,255,0.06); 
+}
+.btn:disabled:hover { 
+    background: rgba(255,255,255,0.03); 
+}
+
+/* Cooldown info styles */
+.cooldown-info { 
+    font-size: 12px; 
+    color: var(--muted); 
+    margin-top: 4px; 
+    font-style: italic; 
+}
+
 /* Table */
 .table-wrapper { overflow-x: auto; flex: 1 1 auto; }
 .table { width: 100%; border-collapse: collapse; }

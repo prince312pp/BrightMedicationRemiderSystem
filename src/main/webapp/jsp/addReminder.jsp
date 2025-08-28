@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add Medicine Reminder</title>
+    <title>Add Reminder - Bright Medication Reminder System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css" />
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <div class="brand">Medicine Reminder</div>
+        <div class="brand">Bright Medication Reminder System</div>
         <div class="nav">
             <a href="view-reminders">View Reminders</a>
             <a href="add-reminder">Add Reminder</a>
@@ -16,10 +16,10 @@
     </div>
 
     <div class="card">
-        <h2>Add Medicine Reminder</h2>
+        <h2>Add Medication Reminder</h2>
         <form method="post" action="add-reminder" autocomplete="off">
             <div class="form-row autocomplete">
-                <label class="label" for="medicineName">Medicine Name</label>
+                <label class="label" for="medicineName">Medication Name</label>
                 <input class="input" type="text" name="medicineName" id="medicineName" required oninput="handleInput()" />
                 <div id="ac-list" class="autocomplete-list" style="display:none;"></div>
             </div>

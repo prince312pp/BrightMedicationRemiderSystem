@@ -30,6 +30,8 @@ public class MedicineReminder {
     private boolean taken = false;
 
     private LocalDateTime nextReminderTime;
+    
+    private LocalDateTime lastTakenTime; // Track when medication was last marked as taken
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -57,4 +59,7 @@ public class MedicineReminder {
 
     public LocalDateTime getNextReminderTime() { return nextReminderTime; }
     public void setNextReminderTime(LocalDateTime nextReminderTime) { this.nextReminderTime = nextReminderTime; }
+    
+    public LocalDateTime getLastTakenTime() { return lastTakenTime; }
+    public void setLastTakenTime(LocalDateTime lastTakenTime) { this.lastTakenTime = lastTakenTime; }
 }

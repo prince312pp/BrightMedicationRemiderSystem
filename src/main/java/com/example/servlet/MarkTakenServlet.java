@@ -34,7 +34,21 @@ public class MarkTakenServlet extends HttpServlet {
         session.beginTransaction();
         MedicineReminder r = session.get(MedicineReminder.class, id);
         if (r != null) {
+            // Check 23-hour cooldown
+            LocalDateTime now = LocalDateTime.now();
+            if (r.getLastTakenTime() != null) {
+                LocalDateTime cooldownEnd = r.getLastTakenTime().plusHours(23);
+                if (now.isBefore(cooldownEnd)) {
+                    // Still in cooldown period
+                    session.getTransaction().rollback();
+                    session.close();
+                    resp.sendRedirect("view-reminders?error=cooldown");
+                    return;
+                }
+            }
+            
             r.setTaken(true);
+            r.setLastTakenTime(now);
             // Advance nextReminderTime based on frequency
             LocalDateTime base = r.getNextReminderTime() != null ? r.getNextReminderTime() : r.getReminderTime();
             if ("WEEKLY".equalsIgnoreCase(r.getFrequency()) && r.getDaysOfWeek() != null) {

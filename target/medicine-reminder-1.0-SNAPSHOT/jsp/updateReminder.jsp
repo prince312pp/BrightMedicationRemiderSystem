@@ -2,14 +2,14 @@
 <%@ page import="com.example.model.MedicineReminder" %>
 <html>
 <head>
-    <title>Update Reminder</title>
+    <title>Update Reminder - Bright Medication Reminder System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css" />
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <div class="brand">Medicine Reminder</div>
+        <div class="brand">Bright Medication Reminder System</div>
         <div class="nav">
             <a href="view-reminders">View Reminders</a>
             <a href="add-reminder">Add Reminder</a>
@@ -26,7 +26,7 @@
         <form method="post" action="update-reminder">
             <input type="hidden" name="id" value="<%= reminder.getId() %>" />
             <div class="form-row">
-                <label class="label" for="medicineName">Medicine Name</label>
+                <label class="label" for="medicineName">Medication Name</label>
                 <input class="input" type="text" name="medicineName" value="<%= reminder.getMedicineName() %>" required />
             </div>
             <div class="form-row">

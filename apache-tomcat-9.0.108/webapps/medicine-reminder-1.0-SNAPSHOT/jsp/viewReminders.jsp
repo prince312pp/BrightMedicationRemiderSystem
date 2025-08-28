@@ -3,7 +3,7 @@
 <%@ page import="com.example.model.MedicineReminder" %>
 <html>
 <head>
-    <title>Medicine Reminders</title>
+    <title>Bright Medication Reminder System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css" />
     <style>
@@ -21,7 +21,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <div class="brand">Medicine Reminder</div>
+        <div class="brand">Bright Medication Reminder System</div>
         <div class="nav">
             <a href="view-reminders">View Reminders</a>
             <a href="add-reminder">Add Reminder</a>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="card">
-        <h2>Your Reminders</h2>
+        <h2>Your Medication Reminders</h2>
         <div class="bar">
             <button id="enableNotifications" class="pill">Enable Browser Notifications</button>
             <button id="enableSound" class="pill">Enable Sound Alarm</button>
@@ -38,7 +38,7 @@
         <div class="table-wrapper">
             <table class="table">
                 <tr>
-                    <th>Medicine</th>
+                    <th>Medication</th>
                     <th>Dosage</th>
                     <th>Reminder Time</th>
                     <th>Next</th>
@@ -59,10 +59,34 @@
                     <td><%= r.getFrequency() %><% if (r.getDaysOfWeek()!=null) { %> (<%= r.getDaysOfWeek() %>)<% } %></td>
                     <td><%= r.getNotes() %></td>
                     <td>
+                        <%
+                            // Check if medication is in cooldown period
+                            boolean inCooldown = false;
+                            String cooldownMessage = "";
+                            if (r.getLastTakenTime() != null) {
+                                java.time.LocalDateTime cooldownEnd = r.getLastTakenTime().plusHours(23);
+                                java.time.LocalDateTime now = java.time.LocalDateTime.now();
+                                if (now.isBefore(cooldownEnd)) {
+                                    inCooldown = true;
+                                    java.time.Duration remaining = java.time.Duration.between(now, cooldownEnd);
+                                    long hours = remaining.toHours();
+                                    long minutes = remaining.toMinutes() % 60;
+                                    cooldownMessage = String.format("Cooldown: %dh %dm remaining", hours, minutes);
+                                }
+                            }
+                        %>
                         <form method="post" action="mark-taken" style="display:inline;">
                             <input type="hidden" name="id" value="<%= r.getId() %>"/>
-                            <button class="btn" type="submit">Mark Taken</button>
+                            <button class="btn" type="submit" <%= inCooldown ? "disabled" : "" %> 
+                                    title="<%= inCooldown ? cooldownMessage : "Mark medication as taken" %>">
+                                <%= inCooldown ? "In Cooldown" : "Mark Taken" %>
+                            </button>
                         </form>
+                        <% if (inCooldown) { %>
+                            <div class="cooldown-info" style="font-size: 12px; color: #94a3b8; margin-top: 4px;">
+                                <%= cooldownMessage %>
+                            </div>
+                        <% } %>
                         <a class="btn" href="update-reminder?id=<%= r.getId() %>">Update</a>
                         <a class="btn btn-danger" href="delete-reminder?id=<%= r.getId() %>" onclick="return confirm('Delete this reminder?');">Delete</a>
                     </td>
@@ -84,10 +108,6 @@ function getLS(k,def){ try{ const v=localStorage.getItem(k); return v==null?def:
 
 // Browser Notifications toggle
 const notifBtn = document.getElementById('enableNotifications');
-const testBtn = document.createElement('button');
-testBtn.className = 'pill';
-testBtn.textContent = 'Test Notification';
-notifBtn.parentElement.insertBefore(testBtn, notifBtn.nextSibling);
 let notificationsEnabled = getLS('notifEnabled', false);
 
 function updateNotifBtn(){
@@ -119,10 +139,6 @@ if ('Notification' in window) {
     } else {
       notificationsEnabled = false; setLS('notifEnabled', false); updateNotifBtn(); showHint('Browser notifications disabled.');
     }
-  };
-  testBtn.onclick = () => {
-    if (!notificationsEnabled) { showHint('Enable notifications first.'); return; }
-    try { new Notification('Test reminder', { body: 'This is a test notification.' }); } catch(e) { showHint('Browser blocked notification.'); }
   };
   if (Notification.permission !== 'granted') {
     if (notificationsEnabled) notificationsEnabled = false;

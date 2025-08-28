@@ -1452,3 +1452,6 @@ Was expecting one of:
 		at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:99)
 		at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1362)
 		... 33 more
+28-Aug-2025 22:15:13.070 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+28-Aug-2025 22:15:13.071 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+28-Aug-2025 22:15:13.074 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@7d537616')
