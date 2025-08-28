@@ -1,0 +1,151 @@
+Aspirin
+Paracetamol
+Acetaminophen
+Ibuprofen
+Amoxicillin
+Azithromycin
+Atorvastatin
+Metformin
+Omeprazole
+Losartan
+Amlodipine
+Cetirizine
+Loratadine
+Naproxen
+Diclofenac
+Doxycycline
+Pantoprazole
+Levothyroxine
+Simvastatin
+Hydrochlorothiazide
+Clopidogrel
+Gliclazide
+Glimipiride
+Sitagliptin
+Pioglitazone
+Insulin Glargine
+Insulin Aspart
+Insulin Lispro
+Telmisartan
+Olmesartan
+Ramipril
+Enalapril
+Atenolol
+Metoprolol
+Propranolol
+Carvedilol
+Furosemide
+Spironolactone
+Torsemide
+Aspirin + Clopidogrel
+Rosuvastatin
+Ecosprin
+Crocin
+Calpol
+Dolo 650
+Combiflam
+Disprin
+Zerodol
+Zerodol-P
+Zifi 200
+Taxim-O
+Augmentin
+Amoxyclav
+Azilone
+Monocef
+Allegra
+Cetzine
+Zyrtec
+Okacet
+Montair-LC
+Montelukast
+Levocetirizine
+PCM 650
+Nise
+Nimuslide
+Meftal Spas
+Cyclopam
+Buscopan
+Rantac
+Zinetac
+Omez
+Rablet
+Pan 40
+Pantocid
+Aciloc
+Esomeprazole
+Rabeprazole
+Domperidone
+Ondansetron
+Digene
+Gelusil
+ORS
+Zincovit
+Becosules
+Neurobion
+Evion 400
+Cholecalciferol
+Calcimax
+Shelcal
+D3 Must
+Iron Folic Acid
+Dexorange
+Feronia
+Thyronorm
+Eutrotrox
+Levothyroxine Sodium
+Azithral
+Ascoril
+Ambroxol
+Levolin
+Duolin
+Levosalbutamol
+Budesonide
+Foracort
+Seroflo
+Levofloxacin
+Ciprofloxacin
+Ofloxacin
+Norfloxacin
+Cefixime
+Cefpodoxime
+Cefuroxime
+Ceftriaxone
+Dexamethasone
+Prednisolone
+Methylprednisolone
+Betadine
+Savlon
+Dettol
+Povidone Iodine
+Clotrimazole
+Fluconazole
+Itraconazole
+Ketoconazole
+Metronidazole
+Tinidazole
+Secnidazole
+Ornidazole
+Loperamide
+Drotaverine
+Hyoscine Butylbromide
+Rifaximin
+Probiotic
+Lactobacillus
+Bifilac
+Z&D
+Bandy Plus
+Albendazole
+Mebendazole
+Ivermectin
+HCQ
+HCQS
+Hydroxychloroquine
+Azathioprine
+Methotrexate
+Folic Acid
+Calcium
+Vitamin B12
+Mecobalamin
+Nurokind
+Neurokind
